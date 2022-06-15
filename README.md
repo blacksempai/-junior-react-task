@@ -1,1 +1,1 @@
-# -junior-react-task
+# Junior React Task
