@@ -1,0 +1,21 @@
+.navigation {
+    display: flex;
+}
+
+.nav_link {
+    color: var(--c-text);
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    font-weight: 400;
+    padding: 0 1rem 1.5rem;
+    display: block;
+    font-size: 1rem;
+}
+
+.nav_link.active {
+    border-bottom: 2px var(--c-primary) solid;
+    font-weight: 600;
+    color: var(--c-primary);
+}

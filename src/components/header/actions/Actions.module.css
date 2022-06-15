@@ -1,0 +1,20 @@
+.actions {
+    display: flex;
+    justify-content: end;
+    align-items: flex-start;
+    gap: 1.375rem;
+}
+
+.actions .btn {
+    border: none;
+    background: none;
+    font-family: 'Raleway';
+    font-weight: 500;
+    font-size: 1.2rem;
+    height: 2rem;
+    width: 3rem;
+    color: #1D1F22;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
