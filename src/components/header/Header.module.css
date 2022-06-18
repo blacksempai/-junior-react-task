@@ -1,5 +1,9 @@
 .header {
-    display: grid;
+    display: flex;
     padding-top: 1rem;
-    grid-template-columns: 1fr auto 1fr;
+    align-items: flex-start;
+}
+
+.logo {
+    width: 2.5rem;
 }

@@ -1,16 +1,18 @@
 import { Component } from 'react';
-import { graphql } from '@apollo/client/react/hoc';
-import { categoriesQuery } from './../../../queries/category';
 import classes from './Navigation.module.css';
 import { NavLink } from 'react-router-dom';
 
 class Navigation extends Component {
+
+    componentDidMount() {
+        this.props.getCategories();
+    }
+
     render() {
-        const { data = {} } = this.props;
-        const { categories = [] } = data;
+        const { categories = [] } = this.props;
         const getNavLinkClasses = navData => navData.isActive ? classes.nav_link + " " + classes.active : classes.nav_link
         const categoriesComponents = categories.map(c =>
-            <NavLink className={getNavLinkClasses} key={c.name} to={'/' + c.name}>
+            <NavLink className={getNavLinkClasses} key={c.name} to={'/category/' + c.name} title={c.name}>
                 {c.name}
             </NavLink>
         );
@@ -23,4 +25,4 @@ class Navigation extends Component {
     }
 }
 
-export default graphql(categoriesQuery)(Navigation);
+export default Navigation;

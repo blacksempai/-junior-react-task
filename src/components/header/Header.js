@@ -1,16 +1,16 @@
 import { Component } from 'react';
 import classes from './Header.module.css';
-import Navigation from './navigation/Navigation';
-import Actions from './actions/Actions';
 import logo from './logo.svg'
+import NavigationContainer from './navigation/NavigationContainer';
+import ActionsContainer from './actions/ActionsContainer';
 
 class Header extends Component {
     render() {
         return (
             <header className={classes.header + " container"}>
-                <Navigation/>
+                <NavigationContainer/>
                 <img src={logo} alt="logo" className={classes.logo}/>
-                <Actions/>
+                <ActionsContainer/>
             </header>
         );
     }

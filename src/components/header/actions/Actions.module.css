@@ -1,20 +1,30 @@
 .actions {
+    flex: 1;
+    position: relative;
+}
+
+.actions_btn_group {
     display: flex;
     justify-content: end;
     align-items: flex-start;
     gap: 1.375rem;
 }
 
-.actions .btn {
+.btn {
     border: none;
     background: none;
     font-family: 'Raleway';
     font-weight: 500;
     font-size: 1.2rem;
     height: 2rem;
-    width: 3rem;
+    width: 4rem;
     color: #1D1F22;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn.opened .arrow {
+    transform: rotate(180deg);
 }

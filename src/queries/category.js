@@ -1,9 +1,4 @@
-import { gql } from '@apollo/client';
+import { Query } from "@tilework/opus";
 
-export const categoriesQuery = gql`
-    query categoriesQuery {
-        categories {
-            name
-          }
-    }
-`;
+export const categoriesQuery = new Query('categories', true)
+    .addField('name');

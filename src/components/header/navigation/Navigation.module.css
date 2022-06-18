@@ -1,5 +1,6 @@
 .navigation {
     display: flex;
+    flex: 1;
 }
 
 .nav_link {
@@ -18,4 +19,18 @@
     border-bottom: 2px var(--c-primary) solid;
     font-weight: 600;
     color: var(--c-primary);
+}
+
+/* 
+    This is a workaround to set the width of the navigation link block
+    to prevent it from jumping when changing the font-weight
+*/
+.nav_link::after {
+    display: block;
+    content: attr(title);
+    font-weight: bold;
+    height: 1px;
+    color: transparent;
+    overflow: hidden;
+    visibility: hidden;
 }

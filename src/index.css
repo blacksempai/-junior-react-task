@@ -3,6 +3,10 @@
   --c-primary: #5ECE7B;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
 }
