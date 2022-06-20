@@ -1,8 +1,8 @@
 import { connect } from "react-redux"
 import Actions from './Actions';
-import { getCurrencies, selectCurrency } from '../../../reducers/currencyReducer'
+import { getCurrencies, selectCurrency } from '../../../reducers/currenciesReducer'
 
 const mapStateToProps = state => 
-({currencies: state.currency.currencies, selectedCurrency: state.currency.selectedCurrency});
+({currencies: state.currencies.currencies, selectedCurrency: state.currencies.selectedCurrency});
 
 export default connect(mapStateToProps,{getCurrencies, selectCurrency})(Actions);

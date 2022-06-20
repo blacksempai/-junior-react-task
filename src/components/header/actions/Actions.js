@@ -8,6 +8,7 @@ class Actions extends Component {
 
     componentDidMount() {
         this.props.getCurrencies();
+        document.body.addEventListener('click', this.closeCurrencyDropdown);
     }
 
     constructor(props) {
@@ -18,7 +19,11 @@ class Actions extends Component {
     }
 
     toggleCurrencyDropdown = () => {
-    this.setState({ isCurrencyDropdownOpen: !this.state.isCurrencyDropdownOpen });
+        this.setState({ isCurrencyDropdownOpen: !this.state.isCurrencyDropdownOpen });
+    };
+
+    closeCurrencyDropdown = () => {
+        this.setState({ isCurrencyDropdownOpen: false });
     };
 
     render() {
@@ -26,13 +31,13 @@ class Actions extends Component {
 
         const currencyBtnClasses = this.state.isCurrencyDropdownOpen ?  classes.opened + ' ' + classes.btn : classes.btn
         return (
-            <div className={classes.actions}>
+            <div className={classes.actions} onClick={e => e.stopPropagation()}>
                 <div className={classes.actions_btn_group}>
                     <button className={currencyBtnClasses} onClick={this.toggleCurrencyDropdown}>
                         <span>{selectedCurrency.symbol}</span>
                         <img className={classes.arrow} src={arrow} alt="↓" />
                     </button>
-                    <button className={classes.btn}>
+                    <button className={classes.btn + ' ' + classes.cart_btn}>
                         <img src={cart} alt="cart"/>
                     </button>
                 </div>

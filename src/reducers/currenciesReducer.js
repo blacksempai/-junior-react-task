@@ -1,5 +1,5 @@
 import { client } from '@tilework/opus';
-import { currenciesQuery } from '../queries/currency';
+import { currenciesQuery } from '../queries/currencies';
 
 const SET_CURRENCIES = 'SET_CURRENCIES';
 const SELECT_CURRENCY = 'SELECT_CURRENCY';
@@ -12,7 +12,7 @@ let initialState = {
     currencies: []
 }
 
-export const currencyReducer = (state = initialState, action) => {
+export const currenciesReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_CURRENCIES: 
             return {

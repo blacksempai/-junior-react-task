@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Navigation from './Navigation';
-import { getCategories } from './../../../reducers/categoryReducer';
+import { getCategories } from '../../../reducers/categoriesReducer';
 
-const mapStateToProps = state => ({categories: state.category.categories})
+const mapStateToProps = state => ({categories: state.categories.categories})
 
 export default connect(mapStateToProps,{getCategories})(Navigation)

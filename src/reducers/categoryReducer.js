@@ -1,29 +1,28 @@
 import { client } from '@tilework/opus';
-import { categoriesQuery } from '../queries/category';
+import { getCategoryQuery } from '../queries/category';
 
-const SET_CATEGORIES = 'SET_CATEGORIES';
+const SET_CATEGORY = 'SET_CATEGORY';
 
 let initialState = {
-    categories: []
+    name: '',
+    products: []
 }
 
 export const categoryReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case SET_CATEGORIES:
-            return {
-                ...state,
-                categories: action.categories
-            }
+    switch(action.type) {
+        case SET_CATEGORY:
+            return action.category
+            
         default: 
             return state;
     }
 }
 
-export const setCategories = categories => ({type: SET_CATEGORIES, categories});
+export const setCategory = category => ({type: SET_CATEGORY, category})
 
-export const getCategories = () => {
+export const getCategory = (title) => {
     return async (dispatch) => {
-        const data = await client.post(categoriesQuery);
-        dispatch(setCategories(data.categories));
+        let { category } = await client.post(getCategoryQuery(title));
+        dispatch(setCategory(category));
     }
 }

@@ -17,12 +17,16 @@
     font-weight: 500;
     font-size: 1.2rem;
     height: 2rem;
-    width: 4rem;
+    width: 3.5rem;
     color: #1D1F22;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 0.5rem;
+}
+
+.cart_btn {
+    justify-content: center;
 }
 
 .btn.opened .arrow {
