@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { getCategory } from '../../reducers/categoryReducer';
 import ProductListingPage from './ProductListingPage';
-import { withRouter } from '../../hocs/withRouter'
+import { withRouter } from '../../components/common/hocs/withRouter'
 
 const mapStateToProps = (state) => {
     return {

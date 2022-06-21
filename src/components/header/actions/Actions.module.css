@@ -1,6 +1,7 @@
 .actions {
     flex: 1;
     position: relative;
+    z-index: 10;
 }
 
 .actions_btn_group {
@@ -23,6 +24,7 @@
     align-items: center;
     justify-content: flex-end;
     gap: 0.5rem;
+    cursor: pointer;
 }
 
 .cart_btn {

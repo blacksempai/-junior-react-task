@@ -1,20 +1,76 @@
 .card {
     text-align: center;
     padding: 1rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card.blured::after {
+    content: "OUT OF STOCK";
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 160%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8D8F9A;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .card:hover {
     box-shadow: 0px 4px 35px 0px #A8ACB030;
 }
 
+.card:hover::after {
+    display: none;
+}
+
+.card_link {
+    text-decoration: none;
+    color: initial;
+}
+
 .card_img {
     max-width: 100%;
     max-height: 20rem;
+    object-fit: cover;
 }
 
 .card_body {
     padding-top: 1rem;
     text-align: left;
+    position: relative;
+}
+
+.card_btn {
+    display: none;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background: var(--c-primary);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 11px 0px #1D1F221A;
+
+    position: absolute;
+    top: -1.5rem;
+    right: 5%;
+    cursor: pointer;
+}
+
+.card:hover .card_btn {
+    display: flex;
 }
 
 .card_title {

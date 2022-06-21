@@ -15,9 +15,14 @@ body {
 }
 
 .container {
-  margin: 0 5rem;
+  margin: 0 8rem;
 }
 
+@media all and (max-width: 1400px) {
+  .container {
+    margin: 0 5rem;
+  }
+}
 
 @media all and (max-width: 1200px) {
   .container {
@@ -27,6 +32,6 @@ body {
 
 @media all and (max-width: 800px) {
   .container {
-    margin: 0;
+    margin: 0 1rem;
   }
 }
