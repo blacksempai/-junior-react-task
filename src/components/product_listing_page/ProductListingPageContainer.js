@@ -6,7 +6,8 @@ import { withRouter } from '../../hocs/withRouter'
 const mapStateToProps = (state) => {
     return {
         products: state.category.products,
-        name: state.category.name
+        name: state.category.name,
+        selectedCurrency: state.currencies.selectedCurrency
     }
 }
 

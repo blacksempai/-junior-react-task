@@ -1,0 +1,16 @@
+.name {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 160%;
+    color: var(--c-text);
+    text-transform: capitalize;
+    padding-top: 2rem;
+}
+
+.products_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 4rem 0;
+}
