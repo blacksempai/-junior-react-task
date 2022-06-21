@@ -2,13 +2,11 @@ import { Component } from 'react';
 import ProductCard from './product_card/ProductCard';
 
 class ProductListingPage extends Component {
-
-    componentDidUpdate() {
-        this.props.getCategory(this.props.params.name);
-    }
-
     render() {
-        const { name, products } = this.props;
+        const { name, products, params, getCategory  } = this.props;
+        if(name !== params.name) {
+            getCategory(params.name);
+        }
         let productComponents = products.map(p => <ProductCard key={p.id} />);
         return (
             <div className='container'>

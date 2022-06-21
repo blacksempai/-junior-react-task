@@ -1,8 +1,7 @@
 import { Component } from 'react';
 import classes from './App.module.css';
 import Header from './components/header/Header';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import ProductListingPageContainer from './components/product_listing_page/ProductListingPageContainer';
+import Router from './Router';
 
 
 class App extends Component {
@@ -10,9 +9,7 @@ class App extends Component {
         return (
             <div className={classes.app}>
                 <Header/>
-                <Routes>
-                    <Route path="/category/:name" element={<ProductListingPageContainer/>}/>
-                </Routes>
+                <Router/>
             </div>
         );
     }
