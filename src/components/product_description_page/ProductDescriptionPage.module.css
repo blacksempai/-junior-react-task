@@ -1,0 +1,13 @@
+.pdp_grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 6.25rem;
+    padding-top: 3rem;
+    padding-right: 5rem;
+}
+
+@media (max-width: 900px) {
+    .pdp_grid {
+        grid-template-columns: 1fr;
+    }
+}

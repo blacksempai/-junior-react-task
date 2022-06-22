@@ -19,7 +19,7 @@
     font-size: 1.2rem;
     height: 2rem;
     width: 3.5rem;
-    color: #1D1F22;
+    color: var(--c-text);
     display: flex;
     align-items: center;
     justify-content: flex-end;
