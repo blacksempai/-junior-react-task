@@ -7,7 +7,10 @@ import Loader from '../common/loader/Loader';
 class ProductDescriptionPage extends Component {
 
     componentDidMount () {
-        this.props.getProduct(this.props.params.id);
+        if(this.props.params.id !== this.props.id) {
+            this.props.getProduct(this.props.params.id);
+        }
+        window.scrollTo(0, 0)
     }
 
     render() {

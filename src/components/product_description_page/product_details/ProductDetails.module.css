@@ -16,6 +16,7 @@
 
 .product_attributes_item {
     padding-bottom: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .product_attributes_item:last-child {
@@ -32,13 +33,13 @@
     font-weight: 700;
     font-size: 1.1rem;
     text-transform: uppercase;
+    margin-bottom: 0.6rem;
 }
 
 .product_price_value {
     font-family: 'Raleway';
     font-weight: 700;
     font-size: 1.4rem;
-    padding-top: 0.6rem;
 }
 
 .cart_btn {

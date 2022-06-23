@@ -4,16 +4,22 @@ import { Markup } from 'interweave';
 import AttributeSelector from '../../common/atribute_selector/AttributeSelector';
 
 class ProductDetails extends Component {
+
+    onAttributeValueChanged = (e) => {
+        const {name, value} = e.target;
+        this.props.selectAttributeValue(name, value);
+    }
+
     render() {
-        const { id, name, brand, category, attributes, 
-            description, inStock, prices = [], selectedCurrency = {} } = this.props;
-
+        const { name, brand, attributes = [], description,
+            inStock, prices = [], selectedCurrency = {}, selectedAttributes } = this.props;
+            
         const price = prices.find(p => selectedCurrency.label === p.currency.label);
-
+        
         const attributeSelectors = attributes.map(a =>
             <div key={a.id} className={classes.product_attributes_item}>
                 <p className={classes.label}>{a.name+':'}</p>
-                <AttributeSelector attribute={a} />
+                <AttributeSelector attribute={a} selectedValue={selectedAttributes[a.name]} onValueChanged={this.onAttributeValueChanged}/>
             </div>
         );
         

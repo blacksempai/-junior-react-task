@@ -3,7 +3,6 @@ import classes from './App.module.css';
 import Header from './components/header/Header';
 import Router from './Router';
 
-
 class App extends Component {
     render() {
         return (

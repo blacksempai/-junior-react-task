@@ -9,5 +9,6 @@
 @media (max-width: 900px) {
     .pdp_grid {
         grid-template-columns: 1fr;
+        padding-right: 0;
     }
 }

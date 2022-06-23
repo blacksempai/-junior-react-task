@@ -1,0 +1,35 @@
+.text_container {
+    display: flex;
+    gap: 0.8rem;
+    width: 100%;
+} 
+
+.text_container_item {
+    flex: 1;
+}
+
+.text_label {
+    display: block;
+    width: 100%;
+    padding: 0.3em 0;
+    border: 1px solid var(--c-text);
+    font-family: 'Source Sans Pro';
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--c-text);
+    min-height: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.text_label_value {
+    font-size: 0.7em;
+}
+
+input:checked ~ .text_label {
+    background: var(--c-text);
+    color: var(--c-white);
+}

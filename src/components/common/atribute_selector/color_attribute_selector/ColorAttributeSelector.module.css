@@ -1,0 +1,38 @@
+.color_container {
+    display: flex;
+    gap: 0.4em;
+}
+
+.color_label {
+    display: block;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    cursor: pointer;
+}
+
+.color_label.border {
+    border: 0.05em solid #999;
+}
+
+.color_label::after  {
+    content: '';
+    display: none;
+    border: 1px solid var(--c-primary);
+    position: absolute;
+    top: -0.1em;
+    bottom: -0.1em;
+    left: -0.1em;
+    right: -0.1em;      
+}
+
+.color_label.border::after {
+    top: -0.15em;
+    bottom: -0.15em;
+    left: -0.15em;
+    right: -0.15em;
+}
+
+input:checked ~ .color_label::after {
+    display: block;
+}

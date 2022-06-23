@@ -1,6 +1,6 @@
 import { Query, Field } from '@tilework/opus';
 
-const productFields = [ 'id', 'name', 'inStock', 'gallery', 'description', 'category', 'brand'  ];
+const productFields = [ 'id', 'name', 'inStock', 'gallery', 'description', 'category', 'brand' ];
 
 export const getProductQuery = (id) => {
     return new Query('product')

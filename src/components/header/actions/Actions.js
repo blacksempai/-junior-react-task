@@ -7,7 +7,9 @@ import CurrencyDropdown from './currency_dropdown/CurrencyDropdown'
 class Actions extends Component {
 
     componentDidMount() {
-        this.props.getCurrencies();
+        if(!this.props.currencies.length||!this.props.selectCurrency) {
+            this.props.getCurrencies();
+        }
         document.body.addEventListener('click', this.closeCurrencyDropdown);
     }
 

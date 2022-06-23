@@ -3,9 +3,24 @@
     justify-content: center;
     align-items: center;
     height: 80vh;
+    animation: smoothAppearance 1s;
 }
 
 .loader_img {
     width: 5rem;
     height: 5rem;
 } 
+
+@keyframes smoothAppearance {
+    0% {
+        opacity: 0;
+    }
+  
+    80% {
+        opacity: 0;
+    }
+  
+    100% {
+        opacity: 1;
+    }
+  }

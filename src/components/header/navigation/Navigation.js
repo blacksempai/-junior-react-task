@@ -10,6 +10,7 @@ class Navigation extends Component {
 
     render() {
         const { categories = [] } = this.props;
+
         const getNavLinkClasses = navData => navData.isActive ? classes.nav_link + " " + classes.active : classes.nav_link
         const categoriesComponents = categories.map(c =>
             <NavLink className={getNavLinkClasses} key={c.name} to={'/category/' + c.name} title={c.name}>
