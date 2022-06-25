@@ -14,6 +14,25 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-y: scroll;
+  position: relative;
+}
+
+header {
+  position: relative;
+  z-index: 20;
+  background-color: var( --c-white);
+}
+
+.shadowed::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  background: rgba(57, 55, 72, 0.22);
 }
 
 .container {

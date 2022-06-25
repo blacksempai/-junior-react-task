@@ -1,6 +1,7 @@
 import { connect } from "react-redux"
 import Actions from './Actions';
 import { getCurrencies, selectCurrency } from '../../../reducers/currenciesReducer'
+import { toggleModal, setIsModalOpen } from './../../../reducers/cartReducer';
 
 const mapStateToProps = state => 
 ({
@@ -8,4 +9,4 @@ const mapStateToProps = state =>
     selectedCurrency: state.currencies.selectedCurrency
 });
 
-export default connect(mapStateToProps,{getCurrencies, selectCurrency})(Actions);
+export default connect(mapStateToProps,{getCurrencies, selectCurrency, toggleModal, setIsModalOpen})(Actions);

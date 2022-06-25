@@ -1,5 +1,5 @@
 const KEY = 'state';
-const TTL = 36000;
+const TTL = 360000;
 
 export function loadState() {
   try {

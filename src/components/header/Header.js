@@ -7,10 +7,12 @@ import ActionsContainer from './actions/ActionsContainer';
 class Header extends Component {
     render() {
         return (
-            <header className={classes.header + " container"}>
-                <NavigationContainer/>
-                <img src={logo} alt="logo" className={classes.logo}/>
-                <ActionsContainer/>
+            <header>
+                <div className={classes.header + " container"}>
+                    <NavigationContainer/>
+                    <img src={logo} alt="logo" className={classes.logo}/>
+                    <ActionsContainer/>
+                </div>
             </header>
         );
     }

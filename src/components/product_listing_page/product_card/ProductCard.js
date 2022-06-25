@@ -4,6 +4,16 @@ import { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
 class ProductCard extends Component {
+
+    addProductToCart = (e) => {
+        const { id, name, brand, gallery, attributes = [], prices = [], addItem } = this.props;
+        
+        const selectedAttributes = attributes.reduce((a, v) => ({...a, [v.name]: v.items[0].value}),{})
+        const itemId = id+Object.entries(selectedAttributes);
+        const item = { id: itemId, name, brand, gallery, attributes, prices, selectedAttributes, count: 1 };
+        addItem(item);
+    }
+
     render() {
         const { id, name, brand, gallery, inStock, prices, selectedCurrency } = this.props;
         const price = prices.find(p => p.currency.label === selectedCurrency.label);
@@ -13,13 +23,15 @@ class ProductCard extends Component {
                     <img className={classes.card_img} src={gallery[0]} alt={name} />
                 </NavLink>
                 <div className={classes.card_body}>
-                    {inStock ? <button className={classes.card_btn}><img src={cart} alt="buy"/></button>:''}
+                    {inStock ? <button className={classes.card_btn}><img src={cart} alt="buy"
+                         onClick={this.addProductToCart}/>
+                    </button>:''}
                     <h2 className={classes.card_title}>
                         <NavLink to={'/product/'+id} className={classes.card_link}>
                             {brand+' '+name}
                         </NavLink>
                     </h2>
-                    <p className={classes.price}>{selectedCurrency.symbol + ' ' + price?.amount}</p>
+                    <p className={classes.price}>{selectedCurrency.symbol + price?.amount}</p>
                 </div>          
             </div>
         )

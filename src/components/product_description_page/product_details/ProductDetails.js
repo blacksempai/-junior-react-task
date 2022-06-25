@@ -10,8 +10,16 @@ class ProductDetails extends Component {
         this.props.selectAttributeValue(name, value);
     }
 
+    addProductToCart = (e) => {
+        const { id, name, brand, gallery, attributes = [], prices = [],
+             selectedAttributes, addItem } = this.props;
+        const itemId = id+Object.entries(selectedAttributes);
+        const item = {id: itemId, name, brand, gallery, attributes, prices, selectedAttributes, count: 1 };
+        addItem(item);
+    }
+
     render() {
-        const { name, brand, attributes = [], description,
+        const { name, brand, attributes = [], description, addItem,
             inStock, prices = [], selectedCurrency = {}, selectedAttributes } = this.props;
             
         const price = prices.find(p => selectedCurrency.label === p.currency.label);
@@ -34,7 +42,9 @@ class ProductDetails extends Component {
                 <p className={classes.product_label}>PRICE:</p>
                 <p className={classes.product_price_value}>{price?.currency?.symbol+price?.amount||''}</p>
             </div>
-            <button className={classes.cart_btn} disabled={!inStock}>{inStock ? 'ADD TO CART' : 'OUT OF STOCK' }</button>
+            <button className={classes.cart_btn} disabled={!inStock} onClick={this.addProductToCart}>
+                {inStock ? 'ADD TO CART' : 'OUT OF STOCK' }
+            </button>
             <div className={classes.product_description}>
                 <Markup content={description}/>
             </div>

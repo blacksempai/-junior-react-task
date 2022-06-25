@@ -1,24 +1,31 @@
-import { Component } from "react";
+import { Component } from 'react';
 import { connect } from 'react-redux';
-import ProductListingPageContainer from "./components/product_listing_page/ProductListingPageContainer";
 import { Navigate, Route, Routes } from 'react-router-dom';
-import ProductDescriptionPageContainer from "./components/product_description_page/ProductDescriptionPageContainer";
+import ProductListingPageContainer from './components/product_listing_page/ProductListingPageContainer';
+import ProductDescriptionPageContainer from './components/product_description_page/ProductDescriptionPageContainer';
+import CartPageContainer from './components/cart_page/CartPageContainer'
 
 class Router extends Component {
     render() {
-        const { categories } = this.props;
+        const { categories, isModalOpen } = this.props;
         if(!categories.length) {
             return null;
         }
         const defaultURL = '/category/' + categories[0].name;
         return (
-            <Routes>
-                <Route path='/category/:name' element={<ProductListingPageContainer/>}/>
-                <Route path='/product/:id' element={<ProductDescriptionPageContainer/>}/>
-                <Route path='*' element={<Navigate to={defaultURL}/>}/>
-            </Routes>
+            <div className={isModalOpen ? 'shadowed' : ''}>
+                <Routes>
+                    <Route path='/category/:name' element={<ProductListingPageContainer/>}/>
+                    <Route path='/product/:id' element={<ProductDescriptionPageContainer/>}/>
+                    <Route path='/cart' element={<CartPageContainer/>}/>
+                    <Route path='*' element={<Navigate to={defaultURL}/>}/>
+                </Routes>
+            </div>
         )
     }
 }
 
-export default connect(state => ({categories: state.categories.categories}))(Router)
+const mapStateToProps = state =>
+ ({categories: state.categories.categories, isModalOpen: state.cart.isModalOpen})
+
+export default connect(mapStateToProps)(Router)

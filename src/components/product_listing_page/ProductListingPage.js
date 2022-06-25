@@ -17,14 +17,16 @@ class ProductListingPage extends Component {
     }
 
     render() {
-        const { name, products, params, selectedCurrency } = this.props;
+        const { name, products, params, selectedCurrency, addItem } = this.props;
 
         if(name !== params.name) {
             return <Loader/>;
         }
-        let productComponents = products.map(p => <ProductCard key={p.id} {...p} selectedCurrency={selectedCurrency}/>);
+        let productComponents = products.map(p => 
+            <ProductCard key={p.id} {...p} addItem={addItem} selectedCurrency={selectedCurrency}/>
+        );
         return (
-            <div className='container '>
+            <div className='container'>
                 <h1 className={classes.name}>{name}</h1>
                 <div className={classes.products_grid}>
                     { productComponents }

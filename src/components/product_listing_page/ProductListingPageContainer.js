@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { getCategory } from '../../reducers/categoryReducer';
 import ProductListingPage from './ProductListingPage';
 import { withRouter } from '../../components/common/hocs/withRouter'
+import { addItem } from '../../reducers/cartReducer'
 
 const mapStateToProps = (state) => {
     return {
@@ -11,4 +12,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {getCategory})(withRouter(ProductListingPage));
+export default connect(mapStateToProps, {getCategory, addItem})(withRouter(ProductListingPage));

@@ -3,6 +3,7 @@ import classes from './Actions.module.css';
 import cart from './cart.svg'
 import arrow from './arrow.svg'
 import CurrencyDropdown from './currency_dropdown/CurrencyDropdown'
+import CartOverlayContainer from './cart_overlay/CartOverlayContainer';
 
 class Actions extends Component {
 
@@ -20,7 +21,8 @@ class Actions extends Component {
         };
     }
 
-    toggleCurrencyDropdown = () => {
+    toggleCurrencyDropdown = (e) => {
+        e.stopPropagation();
         this.setState({ isCurrencyDropdownOpen: !this.state.isCurrencyDropdownOpen });
     };
 
@@ -28,18 +30,22 @@ class Actions extends Component {
         this.setState({ isCurrencyDropdownOpen: false });
     };
 
+    closeCartModal = (e) => {
+        this.props.setIsModalOpen(false);
+    }
+
     render() {
-        const { currencies = [], selectedCurrency, selectCurrency } = this.props;
+        const { currencies = [], selectedCurrency, selectCurrency, toggleModal } = this.props;
 
         const currencyBtnClasses = this.state.isCurrencyDropdownOpen ?  classes.opened + ' ' + classes.btn : classes.btn
         return (
-            <div className={classes.actions} onClick={e => e.stopPropagation()}>
+            <div className={classes.actions}>
                 <div className={classes.actions_btn_group}>
                     <button className={currencyBtnClasses} onClick={this.toggleCurrencyDropdown}>
                         <span>{selectedCurrency.symbol}</span>
                         <img className={classes.arrow} src={arrow} alt="↓" />
                     </button>
-                    <button className={classes.btn + ' ' + classes.cart_btn}>
+                    <button className={classes.btn + ' ' + classes.cart_btn} onClick={toggleModal}>
                         <img src={cart} alt="cart"/>
                     </button>
                 </div>
@@ -47,6 +53,7 @@ class Actions extends Component {
                                 isCurrencyDropdownOpen={this.state.isCurrencyDropdownOpen}
                                 selectCurrency={selectCurrency}
                                 toggleCurrencyDropdown={this.toggleCurrencyDropdown}/>
+                <CartOverlayContainer selectedCurrency={selectedCurrency}/>
             </div>
         );
     }
