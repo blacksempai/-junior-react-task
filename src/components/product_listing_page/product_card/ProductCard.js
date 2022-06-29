@@ -1,5 +1,5 @@
 import classes from './ProductCard.module.css';
-import cart from './cart.svg';
+import { ReactComponent as CartIcon } from './cart.svg';
 import { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -23,9 +23,11 @@ class ProductCard extends Component {
                     <img className={classes.card_img} src={gallery[0]} alt={name} />
                 </NavLink>
                 <div className={classes.card_body}>
-                    {inStock ? <button className={classes.card_btn}><img src={cart} alt="buy"
-                         onClick={this.addProductToCart}/>
-                    </button>:''}
+                    { inStock ? 
+                    <button className={classes.card_btn} onClick={this.addProductToCart}>
+                        <CartIcon/>
+                    </button> : null
+                    }
                     <h2 className={classes.card_title}>
                         <NavLink to={'/product/'+id} className={classes.card_link}>
                             {brand+' '+name}

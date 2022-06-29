@@ -7,13 +7,13 @@ import CartPageContainer from './components/cart_page/CartPageContainer'
 
 class Router extends Component {
     render() {
-        const { categories, isModalOpen } = this.props;
+        const { categories, isDropdownOpen } = this.props;
         if(!categories.length) {
             return null;
         }
         const defaultURL = '/category/' + categories[0].name;
         return (
-            <div className={isModalOpen ? 'shadowed' : ''}>
+            <div className={ isDropdownOpen ? 'shadowed' : '' }>
                 <Routes>
                     <Route path='/category/:name' element={<ProductListingPageContainer/>}/>
                     <Route path='/product/:id' element={<ProductDescriptionPageContainer/>}/>
@@ -26,6 +26,6 @@ class Router extends Component {
 }
 
 const mapStateToProps = state =>
- ({categories: state.categories.categories, isModalOpen: state.cart.isModalOpen})
+ ({categories: state.categories.categories, isDropdownOpen: state.cart.isDropdownOpen})
 
 export default connect(mapStateToProps)(Router)

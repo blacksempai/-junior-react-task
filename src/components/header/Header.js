@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import classes from './Header.module.css';
-import logo from './logo.svg'
+import { ReactComponent as LogoIcon } from './logo.svg'
 import NavigationContainer from './navigation/NavigationContainer';
-import ActionsContainer from './actions/ActionsContainer';
+import Actions from './actions/Actions';
 
 class Header extends Component {
     render() {
@@ -10,8 +10,8 @@ class Header extends Component {
             <header>
                 <div className={classes.header + " container"}>
                     <NavigationContainer/>
-                    <img src={logo} alt="logo" className={classes.logo}/>
-                    <ActionsContainer/>
+                    <LogoIcon className={classes.logo}/>
+                    <Actions/>
                 </div>
             </header>
         );

@@ -5,25 +5,26 @@ import { NavLink } from 'react-router-dom';
 
 class CartOverlay extends Component {
     render() {
-        const { items, isModalOpen, addItem, removeItem, clearCart, selectedCurrency } = this.props;
+        const { items, isDropdownOpen, addItem, removeItem, clearCart, selectedCurrency, count } = this.props;
 
-        if(!isModalOpen) {
+        if(!isDropdownOpen) {
             return null;
         }
 
-        const count = items.reduce((p,c) => p + c.count, 0);
-
-        const totalPrice = items.reduce((p,c) => {
+        let totalPrice = items.reduce((p,c) => {
             let price = c.prices.find(p => p.currency.label === selectedCurrency.label).amount;
             return (p + price * c.count);
-        }, 0).toFixed(2);
+        }, 0);
+
+        //Taxes
+        totalPrice = (totalPrice+totalPrice*0.21).toFixed(2);
 
         const elements = items.map(i => 
             <CartOverlayItem key={i.id} item={i} selectedCurrency={selectedCurrency} addItem={addItem} removeItem={removeItem} />
         );
 
         return (
-            <div className={classes.cart_overlay}>
+            <div className={classes.cart_overlay} onClick={e => e.stopPropagation()}>
                 <p className={classes.cart_header}>
                     <span className={classes.bold}>Bag, </span>
                     <span className={classes.count}>{count + ' item' + (count > 1 ? 's' : '')}</span>

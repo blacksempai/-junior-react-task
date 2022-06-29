@@ -4,9 +4,9 @@ import classes from './CurrencyDropdown.module.css';
 class CurrencyDropdown extends Component {
 
     render() {
-        const { isCurrencyDropdownOpen, currencies, selectCurrency, toggleCurrencyDropdown} = this.props;
+        const { isDropdownOpen, currencies, selectCurrency, toggleCurrencyDropdown} = this.props;
 
-        if(!isCurrencyDropdownOpen) {
+        if(!isDropdownOpen) {
             return null;
         }
 
@@ -22,7 +22,7 @@ class CurrencyDropdown extends Component {
         );
         
         return (
-            <ul className={classes.currency_dropdown}>
+            <ul className={classes.currency_dropdown} onClick={e => e.stopPropagation()}>
                 {currenciesItems}
             </ul>
         );

@@ -1,10 +1,9 @@
 const ADD_ITEM = 'ADD_ITEM';
 const REMOVE_ITEM = 'REMOVE_ITEM';
 const CLEAR_CART = 'CLEAR_CART';
-const SET_IS_MODAL_OPEN = 'SET_IS_MODAL_OPEN'; 
-const TOGGLE_MODAL = 'TOGGLE_MODAL'; 
+const SET_IS_CART_DROPDOWN_OPEN = 'SET_IS_CART_DROPDOWN_OPEN'; 
 
-export const cartReducer = (state = {items:[], isModalOpen: false}, action) => {
+export const cartReducer = (state = {items:[], isDropdownOpen: false}, action) => {
     let item;
     switch(action.type) {
         case ADD_ITEM:
@@ -36,16 +35,11 @@ export const cartReducer = (state = {items:[], isModalOpen: false}, action) => {
                 ...state,
                 items: []
             }
-        case SET_IS_MODAL_OPEN: 
+        case SET_IS_CART_DROPDOWN_OPEN: 
             return {
                 ...state,
-                isModalOpen: action.isModalOpen
+                isDropdownOpen: action.isDropdownOpen
             }
-        case TOGGLE_MODAL: 
-        return {
-            ...state,
-            isModalOpen: !state.isModalOpen
-        }
         default:
             return state;
     }
@@ -57,6 +51,4 @@ export const removeItem = item => ({type: REMOVE_ITEM, item});
 
 export const clearCart = () => ({type: CLEAR_CART});
 
-export const setIsModalOpen = isModalOpen => ({type: SET_IS_MODAL_OPEN, isModalOpen});
-
-export const toggleModal = () => ({type: TOGGLE_MODAL});
+export const setIsDropdownOpen = isDropdownOpen => ({type: SET_IS_CART_DROPDOWN_OPEN, isDropdownOpen});

@@ -1,6 +1,7 @@
 .cart_overlay {
     position: absolute;
     right: 0;
+    top: 2.5rem; 
     background-color: var(--c-white);
     padding: 2rem 1rem;
 }
@@ -10,6 +11,24 @@
     flex-direction: column;
     gap: 2rem;
     padding: 2rem 0;
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+
+.card_items_container::-webkit-scrollbar-track {
+    background-color: none;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.card_items_container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.card_items_container::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--c-primary); 
 }
 
 .cart_header {

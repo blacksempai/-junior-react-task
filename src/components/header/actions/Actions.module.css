@@ -10,27 +10,3 @@
     align-items: flex-start;
     gap: 1.375rem;
 }
-
-.btn {
-    border: none;
-    background: none;
-    font-family: 'Raleway';
-    font-weight: 500;
-    font-size: 1.2rem;
-    height: 2rem;
-    width: 3.5rem;
-    color: var(--c-text);
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0.5rem;
-    cursor: pointer;
-}
-
-.cart_btn {
-    justify-content: center;
-}
-
-.btn.opened .arrow {
-    transform: rotate(180deg);
-}

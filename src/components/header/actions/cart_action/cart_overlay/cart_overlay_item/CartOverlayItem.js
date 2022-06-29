@@ -1,6 +1,6 @@
 import classes from './CartOverlayItem.module.css';
 import { Component } from 'react';
-import AttributeSelector from './../../../../common/atribute_selector/AttributeSelector';
+import AttributeSelector from './../../../../../common/atribute_selector/AttributeSelector';
 import plus from './plus.svg';
 import minus from './minus.svg';
 
