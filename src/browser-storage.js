@@ -1,5 +1,5 @@
 const KEY = 'state';
-const TTL = 360000;
+const TTL = 86400000; // aka 24 hour
 
 export function loadState() {
   try {
@@ -8,8 +8,8 @@ export function loadState() {
     if (!serializedState) return undefined;
     const item =  JSON.parse(serializedState);
     if (now.getTime() > item.expiry) {
-        localStorage.removeItem(KEY)
-		return null
+      localStorage.removeItem(KEY)
+		  return null
     }
     return item.state;
   } catch (e) {
