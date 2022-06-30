@@ -35,6 +35,26 @@ header {
   background: rgba(57, 55, 72, 0.22);
 }
 
+.btn {
+  font-family: 'Raleway';
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.8rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--c-primary);
+  border: none;
+  color: var(--c-white);
+}
+
+.btn[disabled] {
+  background: var(--c-text);
+  cursor: default;
+} 
+
 .container {
   margin: 0 8rem;
 }

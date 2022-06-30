@@ -1,4 +1,3 @@
-import classes from './AttributeSelector.module.css';
 import { Component } from 'react';
 import ColorAttributeSelector from './color_attribute_selector/ColorAttributeSelector';
 import TextAttributeSelector from './text_attribute_selector/TextAttributeSelector';
@@ -6,7 +5,7 @@ import TextAttributeSelector from './text_attribute_selector/TextAttributeSelect
 
 class AttributeSelector extends Component {
     render() {
-        const { id, name, type, items } = this.props.attribute;
+        const { name, type} = this.props.attribute;
         switch(type) {
             case 'swatch': 
                 switch(name){

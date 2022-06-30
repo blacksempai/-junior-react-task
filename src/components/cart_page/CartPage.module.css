@@ -1,0 +1,39 @@
+.heading {
+    font-family: 'Raleway';
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+    color: var(--c-text);
+    padding: 2rem 0;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #E5E5E5;;
+}
+
+.summary {
+    padding: 2rem 0 8rem;
+    max-width: 20rem;
+    font-family: 'Raleway';
+    font-size: 1.2rem;
+}
+
+.summary_line {
+    margin-bottom: 0.5rem;
+}
+
+.summary_line:last-of-type {
+    margin-bottom: 1rem;
+}
+
+.summary_name {
+    display: inline-block;
+    width: 5.2rem;
+    font-weight: 400;
+}
+
+.summary_value {
+    font-weight: 700;
+}

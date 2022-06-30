@@ -18,17 +18,18 @@
     display: block;
     background-color: var(--c-text);
     color: var(--c-white);
-    width: 1rem;
-    height: 1rem;
+    width: 1.1rem;
+    height: 1.1rem;
     border-radius: 50%;
 
     font-family: 'Roboto';
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 700;
     display: flex;
     justify-content: center;
     align-items: center;
 
     position: absolute;
-    right: -0.5rem;
+    right: -0.6rem;
     top: 0;
 }

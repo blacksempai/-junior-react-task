@@ -16,7 +16,7 @@
 
 .product_attributes_item {
     padding-bottom: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .product_attributes_item:last-child {
@@ -42,25 +42,6 @@
     font-size: 1.4rem;
 }
 
-.cart_btn {
-    background: var(--c-primary);
-    color: var(--c-white);
-    width: 100%;
-    border: none;
-    padding: 1rem 0;
-    text-transform: uppercase;
-    font-family: 'Raleway';
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 120%;
-    cursor: pointer;
-}
-
-.cart_btn[disabled] {
-    background: var(--c-text);
-    cursor: default;
-} 
-
 .product_description {
     font-family: 'Roboto';
     font-weight: 400;
@@ -68,4 +49,9 @@
     line-height: 159.96%;
     color: var(--c-text);
     padding-top: 2.5rem;
+}
+
+.product_description h1 {
+    font-size: 1.5rem;
+    line-height: 159.96%;
 }

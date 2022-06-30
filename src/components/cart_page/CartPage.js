@@ -1,6 +1,6 @@
 import classes from './CartPage.module.css';
 import { Component } from 'react';
-import CartOverlayItem from './../header/actions/cart_action/cart_overlay/cart_overlay_item/CartOverlayItem';
+import CartItem from './cart_item/CartItem';
 
 class CartPage extends Component {
     render() {
@@ -12,18 +12,38 @@ class CartPage extends Component {
             return (p + price * c.count);
         }, 0);
 
-        const taxes = +(sumPrice*0.21).toFixed(2);
+        const taxes = (sumPrice*0.21).toFixed(2);
 
-        const totalPrice = (sumPrice+taxes).toFixed(2);
+        const totalPrice = (sumPrice+sumPrice*0.21).toFixed(2);
 
         const elements = items.map(i => 
-            <CartOverlayItem key={i.id} item={i} selectedCurrency={selectedCurrency} addItem={addItem} removeItem={removeItem} />
+            <>
+                <CartItem key={i.id} item={i} selectedCurrency={selectedCurrency} addItem={addItem} removeItem={removeItem} />
+                <hr className={classes.divider}/>
+            </>
         ); 
         return (
-            <div>
-                <h1>Cart</h1>
-                {elements}
-                <button onClick={clearCart}>ORDER</button>
+            <div className='container'>
+                <h1 className={classes.heading}>Cart</h1>
+                <hr className={classes.divider}/>
+                <div>
+                    {elements}
+                </div>
+                <div className={classes.summary}>
+                    <p className={classes.summary_line}>
+                        <span className={classes.summary_name}>Tax 21%:</span>
+                        <span className={classes.summary_value}>{selectedCurrency.symbol+taxes}</span>
+                    </p>
+                    <p className={classes.summary_line}>
+                        <span className={classes.summary_name}>Quantity:</span>
+                        <span className={classes.summary_value}>{count}</span>
+                    </p>
+                    <p className={classes.summary_line}>
+                        <span className={classes.summary_name}>Total:</span>
+                        <span className={classes.summary_value}>{selectedCurrency.symbol+totalPrice}</span>
+                    </p>
+                    <button onClick={clearCart} className='btn'>ORDER</button>
+                </div>
             </div>
         )
     }

@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 class CartOverlay extends Component {
     render() {
-        const { items, isDropdownOpen, addItem, removeItem, clearCart, selectedCurrency, count } = this.props;
+        const { items, isDropdownOpen, addItem, removeItem, clearCart, selectedCurrency, count, closeCartDropdown } = this.props;
 
         if(!isDropdownOpen) {
             return null;
@@ -37,8 +37,12 @@ class CartOverlay extends Component {
                     <span className={classes.price}>{selectedCurrency.symbol+totalPrice}</span>
                 </p>
                 <div className={classes.card_btn_container}>
-                    <NavLink to="/cart" className={classes.btn+' '+classes.btn_white}>VIEW BAG</NavLink>
-                    <button onClick={clearCart} className={classes.btn+' '+classes.btn_primary}>CHECK OUT</button>
+                    <NavLink to="/cart" className={classes.btn_white} onClick={closeCartDropdown}>
+                        VIEW BAG
+                    </NavLink>
+                    <button onClick={clearCart} className='btn' disabled={count === 0}>
+                        CHECK OUT
+                    </button>
                 </div>
             </div>
         )

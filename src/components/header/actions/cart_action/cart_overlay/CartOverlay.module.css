@@ -4,6 +4,7 @@
     top: 2.5rem; 
     background-color: var(--c-white);
     padding: 2rem 1rem;
+    min-width: 20rem;
 }
 
 .card_items_container {
@@ -68,16 +69,13 @@
     gap: 0.8rem;
 }
 
-.card_btn_container .btn {
-    flex: 1;
+.card_btn_container .btn_white {
+    width: 100%;
     padding: 0.8rem 0;
     font-family: 'Raleway';
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
-}
-
-.card_btn_container .btn.btn_white {
     color: var(--c-text);
     text-decoration: none;
     border: 1px solid var(--c-text);
@@ -85,9 +83,3 @@
     justify-content: center;
     align-items: center;
 } 
-
-.card_btn_container .btn.btn_primary {
-    background-color: var(--c-primary);
-    border: none;
-    color: var(--c-white);
-}

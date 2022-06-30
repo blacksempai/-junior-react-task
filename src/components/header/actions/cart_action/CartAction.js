@@ -36,7 +36,7 @@ class CartAction extends Component {
                     <CartIcon/>
                     { count ? <span className={classes.count}>{count}</span> : null}
                 </button>
-                <CartOverlay {...this.props} count={count}/>
+                <CartOverlay {...this.props} count={count} closeCartDropdown={this.closeCartDropdown}/>
             </div>
         )
     }

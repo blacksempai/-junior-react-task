@@ -42,7 +42,7 @@ class ProductDetails extends Component {
                 <p className={classes.product_label}>PRICE:</p>
                 <p className={classes.product_price_value}>{price?.currency?.symbol+price?.amount||''}</p>
             </div>
-            <button className={classes.cart_btn} disabled={!inStock} onClick={this.addProductToCart}>
+            <button className='btn' disabled={!inStock} onClick={this.addProductToCart}>
                 {inStock ? 'ADD TO CART' : 'OUT OF STOCK' }
             </button>
             <div className={classes.product_description}>
