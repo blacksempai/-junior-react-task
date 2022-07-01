@@ -31,10 +31,10 @@ class CartItemGallery extends Component {
                 <img src={gallery[this.state.activePhoto]} alt={name} />
                 { gallery.length > 1 ?
                 <div className={classes.controls_panel}>
-                    <button onClick={this.prevPhoto} disabled={this.state.activePhoto < 0}>
+                    <button onClick={this.prevPhoto} disabled={this.state.activePhoto === 0}>
                         <LeftArrowIcon/>
                     </button>
-                    <button onClick={this.nextPhoto} disabled={this.state.activePhoto > this.props.gallery.length - 1}>
+                    <button onClick={this.nextPhoto} disabled={this.state.activePhoto === this.props.gallery.length - 1}>
                         <RightArrowIcon/>
                     </button>
                 </div> : null

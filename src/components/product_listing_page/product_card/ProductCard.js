@@ -9,6 +9,7 @@ class ProductCard extends Component {
         const { id, name, brand, gallery, attributes = [], prices = [], addItem } = this.props;
         
         const selectedAttributes = attributes.reduce((a, v) => ({...a, [v.name]: v.items[0].value}),{})
+        //Make unique id based on selected attributes
         const itemId = id+Object.entries(selectedAttributes);
         const item = { id: itemId, name, brand, gallery, attributes, prices, selectedAttributes, count: 1 };
         addItem(item);

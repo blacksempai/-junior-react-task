@@ -29,11 +29,11 @@ class CartItem extends Component {
                 </div>
                 <div className={classes.btn_container}>
                     <button onClick={()=>{addItem(item)}} className={classes.btn}>
-                        <MinusIcon/>
+                        <PlusIcon/>
                     </button>
                     <p className={classes.count}>{count}</p>
                     <button onClick={()=>{removeItem(item)}} className={classes.btn}>
-                        <PlusIcon/>
+                        <MinusIcon/>
                     </button>
                 </div>
                 <CartItemGallery name={name} gallery={gallery} />

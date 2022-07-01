@@ -1,6 +1,7 @@
 .gallery_container {
     display: flex;
     justify-content: center;
+    align-items: center;
     position: relative;
     height: 100%;
 }
@@ -25,4 +26,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.controls_panel button:disabled {
+    cursor: initial;
+    filter: brightness(0.7);
 }

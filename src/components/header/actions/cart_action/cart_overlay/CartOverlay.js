@@ -14,10 +14,7 @@ class CartOverlay extends Component {
         let totalPrice = items.reduce((p,c) => {
             let price = c.prices.find(p => p.currency.label === selectedCurrency.label).amount;
             return (p + price * c.count);
-        }, 0);
-
-        //Taxes
-        totalPrice = (totalPrice+totalPrice*0.21).toFixed(2);
+        }, 0).toFixed(2);
 
         const elements = items.map(i => 
             <CartOverlayItem key={i.id} item={i} selectedCurrency={selectedCurrency} addItem={addItem} removeItem={removeItem} />

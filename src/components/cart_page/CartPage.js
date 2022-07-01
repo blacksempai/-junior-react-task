@@ -14,7 +14,7 @@ class CartPage extends Component {
 
         const taxes = (sumPrice*0.21).toFixed(2);
 
-        const totalPrice = (sumPrice+sumPrice*0.21).toFixed(2);
+        const totalPrice = sumPrice.toFixed(2);
 
         const elements = items.map(i => 
             <>
