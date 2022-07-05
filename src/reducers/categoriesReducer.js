@@ -1,5 +1,4 @@
-import { client } from '@tilework/opus';
-import { categoriesQuery } from '../queries/categories';
+import { fetchCategories } from "../api";
 
 const SET_CATEGORIES = 'SET_CATEGORIES';
 const SET_LOADING = 'SET_LOADING';
@@ -33,7 +32,7 @@ export const setLoading = isLoading => ({type: SET_LOADING, isLoading});
 export const getCategories = () => {
     return async (dispatch) => {
         dispatch(setLoading(true));
-        const data = await client.post(categoriesQuery);
+        const data = await fetchCategories();
         dispatch(setCategories(data.categories));
         dispatch(setLoading(false));
     }

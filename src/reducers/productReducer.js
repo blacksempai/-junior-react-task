@@ -1,5 +1,5 @@
-import { client } from '@tilework/opus';
-import { getProductQuery } from './../queries/product';
+import { fetchProduct } from '../api';
+
 const SET_PRODUCT = 'SET_PRODUCT';
 const SET_LOADING = 'SET_LOADING';
 const SELECT_ATTRIBUTE_VALUE = 'SELECT_ATTRIBUTE_VALUE';
@@ -41,7 +41,7 @@ export const selectAttributeValue = (name, value) => ({type: SELECT_ATTRIBUTE_VA
 export const getProduct = (id) => {
     return async (dispatch) => {
         dispatch(setLoading(true));
-        const { product } = await client.post(getProductQuery(id))
+        const { product } = await fetchProduct(id);
         dispatch(setProduct(product));
         dispatch(setLoading(false));
     }

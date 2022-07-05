@@ -1,5 +1,4 @@
-import { client } from '@tilework/opus';
-import { currenciesQuery } from '../queries/currencies';
+import { fetchCurrencies } from '../api';
 
 const SET_CURRENCIES = 'SET_CURRENCIES';
 const SELECT_CURRENCY = 'SELECT_CURRENCY';
@@ -44,7 +43,7 @@ export const setIsDropdownOpen = isDropdownOpen => ({type: SET_IS_CURRENCY_DROPD
 
 export const getCurrencies = () => {
     return async (dispatch) => {
-        const data = await client.post(currenciesQuery);
+        const data = await fetchCurrencies();
         dispatch(setCurrencies(data.currencies));
         dispatch(selectCurrency(data.currencies[0]));
     }

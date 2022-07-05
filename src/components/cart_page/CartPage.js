@@ -42,7 +42,7 @@ class CartPage extends Component {
                         <span className={classes.summary_name}>Total:</span>
                         <span className={classes.summary_value}>{selectedCurrency.symbol+totalPrice}</span>
                     </p>
-                    <button onClick={clearCart} className='btn'>ORDER</button>
+                    <button onClick={clearCart} className='btn' disabled={count === 0}>ORDER</button>
                 </div>
             </div>
         )

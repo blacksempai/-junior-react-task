@@ -22,9 +22,11 @@ class ProductListingPage extends Component {
         if(name !== params.name) {
             return <Loader/>;
         }
+
         let productComponents = products.map(p => 
             <ProductCard key={p.id} {...p} addItem={addItem} selectedCurrency={selectedCurrency}/>
         );
+        
         return (
             <div className='container'>
                 <h1 className={classes.name}>{name}</h1>

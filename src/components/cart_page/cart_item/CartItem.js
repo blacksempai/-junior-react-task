@@ -10,7 +10,7 @@ class CartItem extends Component {
         const { item, addItem, removeItem, selectedCurrency} = this.props;
         const { id, name, brand, gallery, prices, attributes, selectedAttributes, count} = item;
 
-        let price = (prices.find(p => p.currency.label === selectedCurrency.label).amount * count).toFixed(2);
+        let price = prices.find(p => p.currency.label === selectedCurrency.label).amount.toFixed(2);
 
         let attributeElements = attributes.map(a => 
             <div key={a.id} className={classes.attribute}>

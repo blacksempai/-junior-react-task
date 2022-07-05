@@ -8,7 +8,7 @@ import CartPageContainer from './components/cart_page/CartPageContainer'
 class Router extends Component {
     render() {
         const { categories, isDropdownOpen } = this.props;
-        if(!categories.length) {
+        if(!categories?.length) {
             return null;
         }
         const defaultURL = '/category/' + categories[0].name;

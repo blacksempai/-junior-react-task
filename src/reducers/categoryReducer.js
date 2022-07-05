@@ -1,5 +1,4 @@
-import { client } from '@tilework/opus';
-import { getCategoryQuery } from '../queries/category';
+import { fetchCategory } from '../api';
 
 const SET_CATEGORY = 'SET_CATEGORY';
 
@@ -22,7 +21,7 @@ export const setCategory = category => ({type: SET_CATEGORY, category})
 
 export const getCategory = (title) => {
     return async (dispatch) => {
-        let { category } = await client.post(getCategoryQuery(title));
+        let { category } = await fetchCategory(title);
         dispatch(setCategory(category));
     }
 }

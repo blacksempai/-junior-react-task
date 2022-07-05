@@ -11,15 +11,15 @@ class ProductDetails extends Component {
     }
 
     addProductToCart = (e) => {
-        const { id, name, brand, gallery, attributes = [], prices = [],
-             selectedAttributes, addItem } = this.props;
+        const { id, name, brand, gallery, attributes = [], prices = [], selectedAttributes, addItem } = this.props;
+        //Make unique id based on selected attributes
         const itemId = id+Object.entries(selectedAttributes);
         const item = {id: itemId, name, brand, gallery, attributes, prices, selectedAttributes, count: 1 };
         addItem(item);
     }
 
     render() {
-        const { name, brand, attributes = [], description, addItem,
+        const { name, brand, attributes = [], description,
             inStock, prices = [], selectedCurrency = {}, selectedAttributes } = this.props;
             
         const price = prices.find(p => selectedCurrency.label === p.currency.label);
